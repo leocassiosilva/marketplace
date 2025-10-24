@@ -1,10 +1,11 @@
 from django.contrib import admin
 
 from ..models import Peca
+from import_export.admin import ImportExportModelAdmin
 
 
 @admin.register(Peca)
-class PecaAdmin(admin.ModelAdmin):
+class PecaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = [
         'id',
         'nome',
