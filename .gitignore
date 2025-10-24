@@ -65,7 +65,8 @@ secret_key.py       # Se a SECRET_KEY está em um arquivo separado
 # Ignora toda a pasta de configuração do VS Code. 
 # Ela contém configurações pessoais, como zoom, histórico e extensões.
 .vscode/
-
+.env
+.env/
 # Se você deseja versionar algumas configurações do workspace (ex: launch.json),
 # adicione uma exceção com o ponto de exclamação (!):
 # !.vscode/settings.json
