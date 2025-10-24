@@ -1,7 +1,7 @@
 from catalogo.paginations.peca_pagination import StandardResultsSetPagination
 from catalogo.serializers.peca_serializers import PecaSerializer
 from rest_framework import filters, viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny, SAFE_METHODS
 
 from ..models import Peca
 
@@ -26,3 +26,12 @@ class PecaViewSet(viewsets.ModelViewSet):
         'preco',
         'id'
     ]
+    
+    def get_permissions(self):
+        """
+        Retorna permissões dependendo do método HTTP.
+        - Métodos seguros (GET, HEAD, OPTIONS) -> AllowAny
+        """
+        if self.request.method in SAFE_METHODS:
+            return [AllowAny()]
+        return [IsAuthenticated()]
