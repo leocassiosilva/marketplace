@@ -1,0 +1,72 @@
+# -------------------------------------------------------------------
+# GERAL: Python
+# -------------------------------------------------------------------
+
+# Byte-compilados / Otimizados
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Ambientes virtuais (os nomes mais comuns)
+venv/
+env/
+.venv/
+.env/
+*/venv/
+*/env/
+
+# Logs e Dados temporários
+*.log
+*.sqlite3       # O banco de dados SQLite de desenvolvimento
+
+# Arquivos de Distribuição e Empacotamento
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+
+# Relatórios de Teste e Cobertura
+.tox/
+.coverage
+htmlcov/
+
+# Python Tools e Configurações
+.mypy_cache/
+.pytest_cache/
+.idea/          # Pastas de configuração do PyCharm
+
+# -------------------------------------------------------------------
+# ESPECÍFICO: Django
+# -------------------------------------------------------------------
+
+# Diretórios que o Django gera e não devem ser versionados
+# Estes devem ser criados/populados em produção/deploy
+/media/             # Arquivos de mídia enviados por usuários
+/static_collected/  # Arquivos estáticos coletados por 'collectstatic'
+
+# Arquivos de configurações sensíveis
+local_settings.py   # Se você usa um arquivo de configurações local
+settings_local.py
+secret_key.py       # Se a SECRET_KEY está em um arquivo separado
+
+# Arquivos de tradução
+*.mo
+*.pot
+
+# -------------------------------------------------------------------
+# ESPECÍFICO: VS Code
+# -------------------------------------------------------------------
+
+# Ignora toda a pasta de configuração do VS Code. 
+# Ela contém configurações pessoais, como zoom, histórico e extensões.
+.vscode/
+
+# Se você deseja versionar algumas configurações do workspace (ex: launch.json),
+# adicione uma exceção com o ponto de exclamação (!):
+# !.vscode/settings.json
+# !.vscode/launch.json
