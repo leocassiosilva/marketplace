@@ -4,7 +4,8 @@ from rest_framework import filters, viewsets
 from rest_framework.permissions import IsAuthenticated, AllowAny, SAFE_METHODS
 
 from ..models import Peca
-
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 class PecaViewSet(viewsets.ModelViewSet):
     queryset = Peca.objects.all()
@@ -35,3 +36,14 @@ class PecaViewSet(viewsets.ModelViewSet):
         if self.request.method in SAFE_METHODS:
             return [AllowAny()]
         return [IsAuthenticated()]
+
+
+    @method_decorator(cache_page(60 * 15))
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+    
+    def get_queryset(self):
+        import time 
+        time.sleep(2) 
+        return super().get_queryset()
+    
