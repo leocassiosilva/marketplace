@@ -1,4 +1,5 @@
 from decimal import Decimal
+from django.db import IntegrityError
 from django.forms import ValidationError
 from django.test import TestCase
 
@@ -33,3 +34,13 @@ class PecaModelTest(TestCase):
 
         with self.assertRaises(ValidationError):
             peca.full_clean()  # Valida o modelo
+            
+    def test_erro_banco_dados_sem_nome(self):
+        """Gera erro do banco ao salvar diretamente sem nome."""
+        with self.assertRaises(IntegrityError):
+            Peca.objects.create(
+                nome=None,
+                descricao="Teste",
+                preco=Decimal("10.00"),
+                quantidade=1
+            )
