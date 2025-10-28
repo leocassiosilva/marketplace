@@ -89,4 +89,22 @@ python manage.py createuser
 ```
 
 Acesse a aplicação em: http://127.0.0.1:8000
+
 A interface administrativa está em: http://127.0.0.1:8000/admin
+
+### 8. Acessar documentação da API (Swagger)
+Agora você pode acessar a documentação do da api:
+```bash
+  http://localhost:8000/docs/swagger/
+```
+
+
+### 9. Testes Unitários
+
+O projeto inclui testes unitários para garantir o funcionamento correto das funcionalidades.
+
+Rodar todos os testes
+
+```bash
+  python manage.py test
+```
